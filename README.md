@@ -62,3 +62,9 @@ CONTRACT Mecenas
    - Beneficiary can claim PAYMENT_AMOUNT
    - Remaining funds stay in contract
 3. Patron can reclaim remaining funds at any time
+
+### OP_CODES
+Transaction introspection opcodes from the elements project are used to construct the contract. 
+Ref: https://github.com/ElementsProject/elements/blob/master/doc/tapscript_opcodes.md
+
+
