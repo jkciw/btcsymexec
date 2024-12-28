@@ -1,23 +1,22 @@
 # Symbolic execution and analysis of bitcoin script 
 A framework to represent bitcoin scripts symbolically, define constraints for the script and validate the script against those constraints. 
 
-# Tools
+## Tools
 - script parser - to parse the given script into blocks of code (vertices)
 - edge constructor - to construct edges between vertices based on conditions
 - control flow graph builder - to build control flow graph using the vertices and the edges
 - symbolic executor - symbilically execute the blocks of opcodes and follow all possible execution paths
 - constraint checker - define constraints and verify if the constraints are satisfied by any of the execution paths
 
-# Example script used
-- A Licho Mecenas contract is used as an example
-MECENAS CONTRACT PSEUDOCODE
-Purpose: Enables recurring donations from patron to beneficiary with time-based controls
+## Example script used
+A Licho Mecenas contract is used as an example. It is used to make recurring donations from patron to beneficiary with time-based controls
 
-Key Components:
-- Patron (sender of funds)
-- Beneficiary (receiver of funds)
-- Payment amount
-- Time interval (using CheckSequenceVerify)
+MECENAS CONTRACT PSEUDOCODE
+### Key Components:
+    - Patron (sender of funds)
+    - Beneficiary (receiver of funds)
+    - Payment amount
+    - Time interval (using CheckSequenceVerify)
 
 CONTRACT Mecenas 
 
@@ -57,12 +56,9 @@ CONTRACT Mecenas
         REQUIRE Hash160(public_key) = Patron's Public Key hash
         REQUIRE CHECKSIG(s, public_key)
 
-
-/*
-Execution Flow:
+### Execution Flow: 
 1. Contract starts with funds from patron
 2. Every TIME_INTERVAL:
    - Beneficiary can claim PAYMENT_AMOUNT
    - Remaining funds stay in contract
 3. Patron can reclaim remaining funds at any time
-*/
